@@ -3,8 +3,8 @@ using System;
 namespace TPFinal
 {
     public class ParcManager
-    {
-        public Parc parc {get; set;} //
+    {   
+        public Parc parc {get; set;}
 
         public ParkManager() //Constructor
         {
