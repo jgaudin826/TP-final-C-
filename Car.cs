@@ -1,30 +1,29 @@
 class Car 
 {
-    public int Id ;
-    public string Brand;
-    public string Model;
-    public string Year;
-    public string Statut;
-    public string Assurance;
+    public int Id { get; set; }
+    public string Brand { get; set; }
+    public string Model { get; set; }
+    public string Year { get; set; }
+    public bool Statut { get; set; }
+    public string Assurance { get; set; }
 
-    public string LisenceTape;
+    public string LicensePlate { get; set; }
     
-
-    public string value_Brand_car()
+    
+    public string All_info_car()
     {
-        return Brand;
+        return $"Id : {Id}, Brand : {Brand}, Model : {Model}, Year : {Year}, Statut : {Statut}, Assurance : {Assurance}, LicensePlate : {LicensePlate}";
     }
-
-
-    public Car(int Id ,string Brand, string Model, string Year, string Statut, string Assurance, string LisenceTape)
+  
+    public Car(int Id ,string Brand, string Model, string Year, bool Statut, string Assurance, string LicensePlate)
     {
         this.Id = Id;
         this. Brand = Brand;
         this.Model = Model;
         this.Year = Year;
-        this.Statut = Statut;
+        this.Statut =true ;
         this.Assurance = Assurance;
-        this.LisenceTape = LisenceTape;
+        this.LicensePlate = LicensePlate;
 
     }
 }
