@@ -23,8 +23,8 @@ namespace TPFinal
 
                 switch userOption{
                     case 1:
-                        parc.AddCar()
-                        break
+                        
+                        break;
                     case 2:
                         Console.WriteLine("List of all cars in the park:");
                         // list all cars
@@ -36,19 +36,19 @@ namespace TPFinal
                                 case 1:
                                     Console.WriteLine("Search by license plate, brand or model of the vehicule:");
                                     string searchString = Console.ReadLine();
-                                    break
+                                    break;
                                 default:
-                                    break
+                                    break;
                             }
-                        break
+                        break;
                     case 3:
 
-                        break
+                        break;
                     case 4:
 
-                        break
+                        break;
                     default:
-                        break
+                        break;
                 }
             }
         }

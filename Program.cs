@@ -1,11 +1,14 @@
-using 
+﻿using System;
+using TPFinal
 
-namespace TestCSharp
+namespace MyApp
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] str)
+        static void Main(string[] args)
         {
+            var parcManager = new ParcManager();
+            parcManager.Menu();
         }
     }
 }
