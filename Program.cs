@@ -1,7 +1,6 @@
 ﻿using System;
-using TPFinal;
 
-namespace MyApp
+namespace TPFinal
 {
     internal class Program
     {

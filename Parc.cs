@@ -1,19 +1,41 @@
-using.System;
+using System;
 
 namespace TPFinal
 {
     public class Parc
     {
-       public car[] parc {get; set;} //property 
+       public List<Car> CarsList {get; set;} //property 
 
-       public Parc() //constructor 
-       {
-        parc = {};
-       }
+        public Parc() //constructor 
+        {
+            CarsList = new List<Car>();
+        }
 
-       public static void AddANewCar() //method to add a new car
+        public void AddANewCar(Models.Brands chosenBrand, object chosenModel, string licensePlate, int carYear) //method to add a new car
         {
         
+        }
+
+        public Car? GetCarFromLicensePlate(string licensePlate) //method to check if a car with the license plate exists in the car parc
+        {
+            return null;
+        }
+
+        public void RemoveCar(string licensePlate) //method to remove a car from the car parc using the license plate as a unique ID
+        {
+        }
+
+        public void ListAllCars()
+        {
+            Console.WriteLine("list of all cars");
+        }
+        public void FilterAllCars(string filterString) //return a list off all cars with a brand or model matching the filterString
+        {
+            Console.WriteLine("filtered list of all cars");
+        }
+        public void SearchAllCars(string searchString) //return a list off all cars with a license plate matching the searchString
+        {
+            Console.WriteLine("searched list of all cars");
         }
     }
 }
