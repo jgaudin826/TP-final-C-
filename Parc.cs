@@ -1,4 +1,5 @@
 using System;
+using System.Data.Common;
 using System.Globalization;
 
 namespace TPFinal
@@ -39,14 +40,18 @@ namespace TPFinal
 
         public void RemoveCar(string licensePlate) //method to remove a car from the car parc using the license plate as a unique ID
         {
+            Car? carToRemove = null;
             foreach (var car in CarsList)
             {
                 if (car.LicensePlate == licensePlate)
                 {
-                    CarsList.Remove(car);
+                    carToRemove = car;
                 }
             }
-             
+
+            if (carToRemove != null){
+                CarsList.Remove(carToRemove);
+            }       
         }
 
         public void ListAllCars()

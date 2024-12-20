@@ -243,6 +243,7 @@ namespace TPFinal
                                         string? confirm = Console.ReadLine();
                                         if (confirm == "y") {
                                             CarParc.RemoveCar(licensePlate);
+                                            Console.Clear();
                                             Console.ForegroundColor = ConsoleColor.Green;
                                             Console.WriteLine("Successfully removed the car from the car parc.");
                                             Console.ResetColor();
@@ -391,7 +392,7 @@ namespace TPFinal
                                         default:
                                             break;
                                     }
-                                    if(userInput == 3){
+                                    if(userInput == 4){
                                         Console.Clear();
                                         Console.WriteLine("You've quit the process");
                                         break;
@@ -401,11 +402,6 @@ namespace TPFinal
                                     Console.ForegroundColor = ConsoleColor.Red;  
                                     Console.WriteLine("Error: input not recognised");
                                     Console.ResetColor();
-                                }
-                                if(userOption == 4){
-                                    Console.Clear();
-                                    Console.WriteLine("You've quit the process");
-                                    break;
                                 }
                             }
                             break;
@@ -441,7 +437,8 @@ namespace TPFinal
                                         Console.ResetColor();
                                         string? confirm = Console.ReadLine();
                                         if (confirm == "y") {
-                                            //CarParc.RentCar(licensePlate);
+                                            CarParc.RentCar(licensePlate);
+                                            Console.Clear();
                                             Console.ForegroundColor = ConsoleColor.Green;
                                             Console.WriteLine("Successfully rented the car from the car parc.");
                                             Console.ResetColor();
@@ -498,7 +495,8 @@ namespace TPFinal
                                         Console.ResetColor();
                                         string? confirm = Console.ReadLine();
                                         if (confirm == "y") {
-                                            //CarParc.ReturnCar(licensePlate);
+                                            CarParc.ReturnCar(licensePlate);
+                                            Console.Clear();
                                             Console.ForegroundColor = ConsoleColor.Green;
                                             Console.WriteLine("Successfully returned the car to the car parc.");
                                             Console.ResetColor();
