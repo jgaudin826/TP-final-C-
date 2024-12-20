@@ -26,6 +26,5 @@ namespace TPFinal
 
         }
 
-        Car car1 = new Car("Toyota","Corolla",2020,true,"AB-123-CD");
     }
 }
