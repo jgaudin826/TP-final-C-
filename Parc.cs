@@ -54,19 +54,16 @@ namespace TPFinal
             Console.WriteLine("searched list of all cars");
         }
 
-        public List<string> GetAllAvailableCars() // return a list of all info of available cars
+        public void GetAllAvailableCars() // return a list of all info of available cars
         {
-            List<string> availableCars = new List<string>();
 
             foreach (Car car in CarsList)
             {
                 if (!car.IsRented)
                 {
-                    availableCars.Add(car.All_info_car());
+                    Console.WriteLine(car.All_info_car());
                 }
             }
-
-            return availableCars; 
         }
 
     }
