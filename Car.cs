@@ -1,4 +1,4 @@
-class Car 
+public class Car 
 {
     public int Id ;
     public string Brand;
@@ -6,8 +6,7 @@ class Car
     public string Year;
     public string Statut;
     public string Assurance;
-
-    public string LisenceTape;
+    public string LicensePlate;
     
 
     public string value_Brand_car()
@@ -16,7 +15,7 @@ class Car
     }
 
 
-    public Car(int Id ,string Brand, string Model, string Year, string Statut, string Assurance, string LisenceTape)
+    public Car(int Id ,string Brand, string Model, string Year, string Statut, string Assurance, string LicensePlate)
     {
         this.Id = Id;
         this. Brand = Brand;
@@ -24,7 +23,7 @@ class Car
         this.Year = Year;
         this.Statut = Statut;
         this.Assurance = Assurance;
-        this.LisenceTape = LisenceTape;
+        this.LicensePlate = LicensePlate;
 
     }
 }
