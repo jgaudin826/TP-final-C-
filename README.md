@@ -1,10 +1,12 @@
 # Vehicle Rental Management System 🚗
 
 ## Table of Contents 📚
-1. [Project Description](#project-description)
-2. [Features](#features)
-3. [Requirements](#requirements)
-4. [Run the Application](#run-the-application)
+- [Vehicle Rental Management System 🚗](#vehicle-rental-management-system-)
+  - [Table of Contents 📚](#table-of-contents-)
+  - [Project Description 📝](#project-description-)
+  - [Features 🌟](#features-)
+  - [Requirements ⚙️](#requirements-️)
+  - [Run the Application 🚀](#run-the-application-)
 
 ## Project Description 📝
 This project helps manage a large vehicle rental park by providing functionalities including but not limited to:
@@ -12,6 +14,10 @@ This project helps manage a large vehicle rental park by providing functionaliti
 - List all vehicles in the park.
 - Rent vehicles to customers.
 - Return rented vehicles to the park.
+- Remove a car from the park.
+- Filter cars by brand/model.
+- Search for the cars by license plate.
+- Show all available cars.
 
 ## Features 🌟
 - **Add a Vehicle**: Register a new vehicle with ID, brand, model, and year.
@@ -20,7 +26,7 @@ This project helps manage a large vehicle rental park by providing functionaliti
 - **Return a Vehicle**: Mark a vehicle as available by its ID.
 
 ## Requirements ⚙️
-- .NET SDK installed on your machine. Download from [Microsoft .NET](https://dotnet.microsoft.com/).
+- .NET SDK 9.0 installed on your machine. Download from [Microsoft .NET](https://dotnet.microsoft.com/).
 - A text editor like Visual Studio Code or Visual Studio.
 
 ## Run the Application 🚀
