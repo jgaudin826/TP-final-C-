@@ -95,6 +95,27 @@ namespace TPFinal
             }
         }
 
+        public void RentCar(string licensePlate)
+        {
+           foreach (var car in CarsList)
+           {
+                if (car.LicensePlate == licensePlate)
+                {
+                    car.IsRented = true;
+                }
+           }
+        }
+
+         public void ReturnCar(string licensePlate)
+        {
+           foreach (var car in CarsList)
+           {
+                if (car.LicensePlate == licensePlate)
+                {
+                    car.IsRented = false;
+                }
+           }
+        }
     }
 
 }
