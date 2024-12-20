@@ -1,29 +1,30 @@
-public class Car 
+using System;
+
+namespace TPFinal
 {
-    public int Id ;
-    public string Brand;
-    public string Model;
-    public string Year;
-    public string Statut;
-    public string Assurance;
-    public string LicensePlate;
+    public class Car 
+    {
+        public string Brand { get; set; }
+        public string Model { get; set; }
+        public int Year { get; set; }
+        public bool IsRented { get; set; }
+        public string LicensePlate { get; set; }
+        
+        
+        public string All_info_car()
+        {
+            return $"Brand : {Brand}, Model : {Model}, Year : {Year}, IsRented : {IsRented}, LicensePlate : {LicensePlate}";
+        }
     
+        public Car(string Brand, string Model, int Year, bool IsRented, string LicensePlate)
+        {
+            this.Brand = Brand;
+            this.Model = Model;
+            this.Year = Year;
+            this.IsRented = IsRented ;
+            this.LicensePlate = LicensePlate;
 
-    public string value_Brand_car()
-    {
-        return Brand;
-    }
-
-
-    public Car(int Id ,string Brand, string Model, string Year, string Statut, string Assurance, string LicensePlate)
-    {
-        this.Id = Id;
-        this. Brand = Brand;
-        this.Model = Model;
-        this.Year = Year;
-        this.Statut = Statut;
-        this.Assurance = Assurance;
-        this.LicensePlate = LicensePlate;
+        }
 
     }
 }

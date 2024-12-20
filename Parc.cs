@@ -2,36 +2,48 @@ using System;
 
 namespace TPFinal
 {
-    public class GestionFlotte
+    public class Parc
     {
-        private Car[] _parc; 
+       public List<Car> CarsList {get; set;} //property 
 
-        public Car[] Parc
+        public Parc() //constructor 
         {
-            get => _parc;
-            set => _parc = value;
+            CarsList = new List<Car>();
         }
 
-        public GestionFlotte()
+        public void AddANewCar(Models.Brands chosenBrand, object chosenModel, string licensePlate, int carYear) //method to add a new car
         {
-            _parc = new Car[0]; 
+            Car newCar = new Car(
+                Convert.ToString(chosenBrand),    
+                Convert.ToString(chosenModel),    
+                Convert.ToInt32(carYear),                   
+                false,                     
+                Convert.ToString(licensePlate)             
+            );
+
+            CarsList.Add(newCar);
         }
 
-        public void AddANewCar(int id, string brand, string model, string year, string statut, string assurance, string licensePlate)
+        public Car? GetCarFromLicensePlate(string licensePlate) //method to check if a car with the license plate exists in the car parc
         {
-            if (_parc.Any(car => car.Id == id))
-            {
-                throw new ArgumentException("This ID already exists in our directory!");
-            }
+            return null;
+        }
 
-            if (_parc.Any(car => car.LicensePlate == licensePlate))
-            {
-                throw new ArgumentException("This license plate already exists in our directory!");
-            }
+        public void RemoveCar(string licensePlate) //method to remove a car from the car parc using the license plate as a unique ID
+        {
+        }
 
-            var newCar = new Car(id, brand, model, year, statut, assurance, licensePlate);
-            Array.Resize(ref _parc, _parc.Length + 1);
-            _parc[^1] = newCar;
+        public void ListAllCars()
+        {
+            Console.WriteLine("list of all cars");
+        }
+        public void FilterAllCars(string filterString) //return a list off all cars with a brand or model matching the filterString
+        {
+            Console.WriteLine("filtered list of all cars");
+        }
+        public void SearchAllCars(string searchString) //return a list off all cars with a license plate matching the searchString
+        {
+            Console.WriteLine("searched list of all cars");
         }
     }
 
