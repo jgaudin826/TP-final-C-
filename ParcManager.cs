@@ -345,6 +345,7 @@ namespace TPFinal
                             break;
                             
                         default:
+                            Console.Clear();
                             break;
                     }
                     if(userInput == 4){
