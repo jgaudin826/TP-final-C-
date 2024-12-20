@@ -13,7 +13,15 @@ namespace TPFinal
 
         public void AddANewCar(Models.Brands chosenBrand, object chosenModel, string licensePlate, int carYear) //method to add a new car
         {
-        
+            Car newCar = new Car(
+                Convert.ToString(chosenBrand),    
+                Convert.ToString(chosenModel),    
+                Convert.ToInt32(carYear),                   
+                false,                     
+                Convert.ToString(licensePlate)             
+            );
+
+            CarsList.Add(newCar);
         }
 
         public Car? GetCarFromLicensePlate(string licensePlate) //method to check if a car with the license plate exists in the car parc
