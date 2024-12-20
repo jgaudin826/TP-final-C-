@@ -16,7 +16,7 @@ namespace TPFinal
         public void AddANewCar(Models.Brands chosenBrand, object chosenModel, string licensePlate, int carYear) //method to add a new car
         {
             Car newCar = new Car(
-                chosenBrand.ToString(),    
+                chosenBrand.ToString(),   
                 chosenModel.ToString(),    
                 Convert.ToInt32(carYear),                   
                 false,                     
