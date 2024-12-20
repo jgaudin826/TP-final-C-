@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 
 namespace TPFinal
 {
@@ -26,6 +27,13 @@ namespace TPFinal
 
         public Car? GetCarFromLicensePlate(string licensePlate) //method to check if a car with the license plate exists in the car parc
         {
+            foreach (Car car in CarsList)
+            {
+                if (car.LicensePlate == licensePlate)
+                {
+                    return car;
+                }
+            }
             return null;
         }
 
@@ -74,5 +82,19 @@ namespace TPFinal
                         }
                     }
         }
+
+        public void GetAllAvailableCars() // return a list of all info of available cars
+        {
+
+            foreach (Car car in CarsList)
+            {
+                if (!car.IsRented)
+                {
+                    Console.WriteLine(car.All_info_car());
+                }
+            }
+        }
+
     }
+
 }

@@ -20,8 +20,11 @@ namespace TPFinal
 
             while(true)
             {
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("WELCOME TO THE CAR PARC");
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("Select what you would like to do:");
+                Console.ResetColor();
                 Console.WriteLine("1. Add a new car to the parc.");
                 Console.WriteLine("2. Remove a car from the parc.");
                 Console.WriteLine("3. List all cars in the parc.");
@@ -36,8 +39,11 @@ namespace TPFinal
 
                             while(true)
                             {
+                                Console.ForegroundColor = ConsoleColor.Magenta;
                                 Console.WriteLine("Add a new car the car parc | enter 'q' to quit");
+                                Console.ForegroundColor = ConsoleColor.Cyan;
                                 Console.WriteLine("Enter the car's brand from this selected list :");
+                                Console.ResetColor();
                                 foreach (var brand in Enum.GetNames(typeof(Brands)))
                                 {
                                     Console.WriteLine("- " + brand);
@@ -53,9 +59,13 @@ namespace TPFinal
                                 if (Enum.TryParse(inputBrand, out Brands chosenBrand))
                                 {
                                     Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Magenta;
                                     Console.WriteLine("Add a new car the car parc | enter 'q' to quit");
+                                    Console.ResetColor();
                                     Console.WriteLine($"Selected Brand : {chosenBrand}");
+                                    Console.ForegroundColor = ConsoleColor.Cyan;
                                     Console.WriteLine("Enter the car's model from this selected list :");
+                                    Console.ResetColor();
 
                                     string enumName = "TPFinal.Models." + chosenBrand + "Models";
                                     Type? enumType = Type.GetType(enumName);
@@ -71,7 +81,9 @@ namespace TPFinal
                                     else
                                     {
                                         Console.Clear();
+                                        Console.ForegroundColor = ConsoleColor.Red;
                                         Console.WriteLine("Internal Error: no models found for this car brand");
+                                        Console.ResetColor();
                                         break;
                                     }
 
@@ -88,16 +100,19 @@ namespace TPFinal
 
                                         while(true)
                                         {
-                                            Console.WriteLine("Add a new car the car parc | enter 'q' to quit");
+                                            Console.ForegroundColor = ConsoleColor.Magenta;
+                                            Console.WriteLine("Add a new car the car parc | enter 'q' to go back");
+                                            Console.ResetColor();
                                             Console.WriteLine($"Selected Brand : {chosenBrand}");
                                             Console.WriteLine($"Selected Model : {chosenModel}");
+                                            Console.ForegroundColor = ConsoleColor.Cyan;
                                             Console.WriteLine("Enter a French license plate (format: AA-000-AA):");
+                                            Console.ResetColor();
                                             
                                             string? licensePlate = Console.ReadLine();
                                             
                                             if (licensePlate == "q") {
                                                 Console.Clear();
-                                                Console.WriteLine("You've quit the process");
                                                 break;
                                             }
                                             
@@ -109,67 +124,91 @@ namespace TPFinal
 
                                                     while(true)
                                                     {
-                                                        Console.WriteLine("Add a new car the car parc | enter '6' to quit");
+                                                        
+                                                        Console.ForegroundColor = ConsoleColor.Magenta;
+                                                        Console.WriteLine("Add a new car the car parc | enter '6' to go back");
+                                                        Console.ResetColor();
                                                         Console.WriteLine($"Selected Brand : {chosenBrand}");
                                                         Console.WriteLine($"Selected Model : {chosenModel}");
                                                         Console.WriteLine($"License Plate : {licensePlate}");
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
                                                         Console.WriteLine("Enter the car's year of registration:");
+                                                        Console.ResetColor();
                                                         
                                                         if(int.TryParse(Console.ReadLine(),out int carYear)){
                                                             if(1668 <= carYear && carYear <= 2024){
-                                                                Console.WriteLine("Add a new car the car parc | enter '6' to quit");
+                                                                Console.Clear();
+                                                                Console.ForegroundColor = ConsoleColor.Magenta;
+                                                                Console.WriteLine("Add a new car the car parc | enter anything other than 'y' to go back");
+                                                                Console.ResetColor();
                                                                 Console.WriteLine($"Selected Brand : {chosenBrand}");
                                                                 Console.WriteLine($"Selected Model : {chosenModel}");
                                                                 Console.WriteLine($"License Plate : {licensePlate}");
-                                                                Console.WriteLine($"License Plate : {carYear}");
-                                                                Console.WriteLine("Confirm and add car to the parc? y/n");
+                                                                Console.WriteLine($"Registration Year : {carYear}");
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("Confirm and add car to the parc? Type 'y' to confirm.");
+                                                                Console.ResetColor();
                                                                 string? confirm = Console.ReadLine();
                                                                 if (confirm == "y") {
+                                                                    Console.Clear();
                                                                     CarParc.AddANewCar(chosenBrand, chosenModel, licensePlate, carYear);
+                                                                    Console.ForegroundColor = ConsoleColor.Green;
                                                                     Console.WriteLine("Successfully added the new car to the car parc.");
-                                                                    break;
+                                                                    Console.ResetColor();
+                                                                    goto DONE;
                                                                 } else {
                                                                     Console.Clear();
-                                                                    Console.WriteLine("You've quit the process");
                                                                     break;
                                                                 }
 
                                                             }else if(carYear == 6){
-                                                                Console.Clear();
-                                                                Console.WriteLine("You've quit the process");
+                                                                Console.Clear();;
                                                                 break;
                                                             } else{
                                                                 Console.Clear();
+                                                                Console.ForegroundColor = ConsoleColor.Red;
                                                                 Console.WriteLine("Error: The year of registration must be between 1668 and 2024.");
+                                                                Console.ResetColor();
                                                             }
                                                         } else {
                                                             Console.Clear();
+                                                            Console.ForegroundColor = ConsoleColor.Red;  
                                                             Console.WriteLine("Error: input not recognised");
+                                                            Console.ResetColor();
                                                         }
                                                     } 
                                                 } else {
                                                     Console.Clear();
+                                                    Console.ForegroundColor = ConsoleColor.Red;
                                                     Console.WriteLine("Error: This license plate is already registered to a car in this car parc.");
+                                                    Console.ResetColor();
                                                 }
                                             } else {
                                                 Console.Clear();
+                                                Console.ForegroundColor = ConsoleColor.Red;
                                                 Console.WriteLine("Error: you seem to have inputed a lisence plate that is the wrong format.");
+                                                Console.ResetColor();
                                             }
                                         }
                                     }
                                     else
                                     {
                                         Console.Clear();
+                                        Console.ForegroundColor = ConsoleColor.Red;
                                         Console.WriteLine("Error: you seem to have inputed an unknown car model for this brand.");
+                                        Console.ResetColor();
                                         break;
                                     }
 
                                 } else {
                                     Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine("Error: you seem to have inputed an unknown car brand.");
+                                    Console.ResetColor();
                                     break;
                                 }
                             }
+                            DONE:
                             break;
 
                         case 2:
@@ -177,8 +216,11 @@ namespace TPFinal
 
                             while(true)
                             {
+                                Console.ForegroundColor = ConsoleColor.Magenta;
                                 Console.WriteLine("Remove a car from the parc | enter 'q' to quit");
+                                Console.ForegroundColor = ConsoleColor.Cyan;
                                 Console.WriteLine("Enter the car's license plate (format: AA-000-AA):");
+                                Console.ResetColor();
                                 
                                 string? licensePlate = Console.ReadLine();
                                 if (licensePlate == "q") {
@@ -191,13 +233,19 @@ namespace TPFinal
                                     Car? carToRemove = CarParc.GetCarFromLicensePlate(licensePlate);
                                     if(carToRemove!=null)
                                     {
+                                        Console.ForegroundColor = ConsoleColor.Magenta;
                                         Console.WriteLine("Car to be removed:");
+                                        Console.ResetColor();
                                         Console.WriteLine(carToRemove.All_info_car());
+                                        Console.ForegroundColor = ConsoleColor.Cyan;
                                         Console.WriteLine("Confirm and remove the car from the parc? y/n");
+                                        Console.ResetColor();
                                         string? confirm = Console.ReadLine();
                                         if (confirm == "y") {
                                             CarParc.RemoveCar(licensePlate);
+                                            Console.ForegroundColor = ConsoleColor.Green;
                                             Console.WriteLine("Successfully removed the car from the car parc.");
+                                            Console.ResetColor();
                                             break;
                                         } else {
                                             Console.Clear();
@@ -207,23 +255,32 @@ namespace TPFinal
 
                                     } else {
                                         Console.Clear();
+                                        Console.ForegroundColor = ConsoleColor.Red;
                                         Console.WriteLine("Error: This license plate is not registered to any car in this car parc.");
+                                        Console.ResetColor();
                                     }
                                 } else {
                                     Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine("Error: you seem to have inputed a lisence plate that is the wrong format.");
+                                    Console.ResetColor();
                                 }
                             }
                             break;
 
                         case 3:
                             Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.Magenta;
                             Console.WriteLine("List of all cars in the parc:");
+                            Console.ResetColor();
                             CarParc.ListAllCars();
+                            Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.WriteLine("Select what you would like to do:");
+                            Console.ResetColor();
                             Console.WriteLine("1. Filter by Brand or Model.");
                             Console.WriteLine("2. Search with license plate.");
-                            Console.WriteLine("3. Back to the Main Menu.");
+                            Console.WriteLine("3. List all cars available to rent.");
+                            Console.WriteLine("4. Back to the Main Menu.");
                             if(int.TryParse(Console.ReadLine(),out int userInput)){
                                 switch(userInput){
                                     case 1:
@@ -231,31 +288,90 @@ namespace TPFinal
 
                                         while(true)
                                         {
-                                            Console.WriteLine("Filter cars from the parc | enter 'q' to quit");
-                                            Console.WriteLine("Enter the car's license plate (format: AA-000-AA):");
+                                            Console.ForegroundColor = ConsoleColor.Magenta;
+                                            Console.WriteLine("Filter cars from the parc | enter 'q' to go back");
+                                            Console.ForegroundColor = ConsoleColor.Cyan;
+                                            Console.WriteLine("Enter the car's brand or model:");
+                                            Console.ResetColor();
                                             
-                                            string? licensePlate = Console.ReadLine();
-                                            if (licensePlate == "q") {
+                                            string? filterString = Console.ReadLine();
+                                            if (filterString == "q") {
                                                 Console.Clear();
                                                 Console.WriteLine("You've quit the process");
                                                 break;
+                                            }
+                                            
+                                            if(filterString != null){
+                                                CarParc.FilterAllCars(filterString);
+                                                while(true)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    Console.WriteLine("Enter anything to go back:");
+                                                    Console.ResetColor();
+                                                    
+                                                    string? _ = Console.ReadLine();
+                                                    break;
+                                                }
+                                            } else { 
+                                                Console.Clear();
+                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                Console.WriteLine("Error: input not recognised.");
+                                                Console.ResetColor();
                                             }
                                         }
                                         break;
                                     case 2:
-                                    Console.Clear();
+                                        Console.Clear();
 
                                         while(true)
                                         {
-                                            Console.WriteLine("Search cars from the parc | enter 'q' to quit");
-                                            Console.WriteLine("Enter the car's license plate (format: AA-000-AA):");
+                                            Console.ForegroundColor = ConsoleColor.Magenta;
+                                            Console.WriteLine("Search cars from the parc | enter 'q' to go back");
+                                            Console.ForegroundColor = ConsoleColor.Cyan;
+                                            Console.WriteLine("Enter either part or all of the license plate you want to find:");
+                                            Console.ResetColor();
                                             
-                                            string? licensePlate = Console.ReadLine();
-                                            if (licensePlate == "q") {
+                                            string? searchString = Console.ReadLine();
+                                            if (searchString == "q") {
                                                 Console.Clear();
                                                 Console.WriteLine("You've quit the process");
                                                 break;
                                             }
+
+                                            if(searchString != null){
+                                                CarParc.SearchAllCars(searchString);
+                                                while(true)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    Console.WriteLine("Enter anything to go back:");
+                                                    Console.ResetColor();
+                                                    
+                                                    string? _ = Console.ReadLine();
+                                                    break;
+                                                }
+                                            } else { 
+                                                Console.Clear();
+                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                Console.WriteLine("Error: input not recognised.");
+                                                Console.ResetColor();
+                                            }
+                                        }
+                                        break;
+                                    case 3:
+                                        Console.Clear();
+
+                                        while(true)
+                                        {
+                                            Console.ForegroundColor = ConsoleColor.Magenta;
+                                            Console.WriteLine("List of all alvailable cars in the parc");
+                                            Console.ResetColor();
+                                            CarParc.GetAllAvailableCars();
+                                            Console.ForegroundColor = ConsoleColor.Cyan;
+                                            Console.WriteLine("Enter anything to go back:");
+                                            Console.ResetColor();
+                                            
+                                            string? _ = Console.ReadLine();
+                                            break;
                                         }
                                         break;
                                     default:
@@ -275,8 +391,11 @@ namespace TPFinal
                             
                             while(true)
                             {
+                                Console.ForegroundColor = ConsoleColor.Magenta;
                                 Console.WriteLine("Rent a car from the parc | enter 'q' to quit");
+                                Console.ForegroundColor = ConsoleColor.Cyan;
                                 Console.WriteLine("Enter the car's license plate (format: AA-000-AA):");
+                                Console.ResetColor();
                                 
                                 string? licensePlate = Console.ReadLine();
                                 if (licensePlate == "q") {
@@ -289,13 +408,19 @@ namespace TPFinal
                                     Car? carToRent = CarParc.GetCarFromLicensePlate(licensePlate);
                                     if(carToRent!=null)
                                     {
+                                        Console.ForegroundColor = ConsoleColor.Magenta;
                                         Console.WriteLine("Car to be removed:");
+                                        Console.ResetColor();
                                         Console.WriteLine(carToRent.All_info_car());
+                                        Console.ForegroundColor = ConsoleColor.Cyan;
                                         Console.WriteLine("Confirm and rent the car from the parc? y/n");
+                                        Console.ResetColor();
                                         string? confirm = Console.ReadLine();
                                         if (confirm == "y") {
                                             CarParc.RemoveCar(licensePlate);
+                                            Console.ForegroundColor = ConsoleColor.Green;
                                             Console.WriteLine("Successfully rented the car from the car parc.");
+                                            Console.ResetColor();
                                             break;
                                         } else {
                                             Console.Clear();
@@ -305,11 +430,15 @@ namespace TPFinal
 
                                     } else {
                                         Console.Clear();
+                                        Console.ForegroundColor = ConsoleColor.Red;
                                         Console.WriteLine("Error: This license plate is not registered to any car in this car parc.");
+                                        Console.ResetColor();
                                     }
                                 } else {
                                     Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine("Error: you seem to have inputed a lisence plate that is the wrong format.");
+                                    Console.ResetColor();
                                 }
                             }
                             break;
@@ -319,8 +448,11 @@ namespace TPFinal
                             
                             while(true)
                             {
+                                Console.ForegroundColor = ConsoleColor.Magenta;
                                 Console.WriteLine("Return a car to the parc | enter 'q' to quit");
+                                Console.ForegroundColor = ConsoleColor.Cyan;
                                 Console.WriteLine("Enter the car's license plate (format: AA-000-AA):");
+                                Console.ResetColor();
                                 
                                 string? licensePlate = Console.ReadLine();
                                 if (licensePlate == "q") {
@@ -333,13 +465,19 @@ namespace TPFinal
                                     Car? carToReturn = CarParc.GetCarFromLicensePlate(licensePlate);
                                     if(carToReturn!=null)
                                     {
+                                        Console.ForegroundColor = ConsoleColor.Magenta;
                                         Console.WriteLine("Car to be removed:");
+                                        Console.ResetColor();
                                         Console.WriteLine(carToReturn.All_info_car());
+                                        Console.ForegroundColor = ConsoleColor.Cyan;
                                         Console.WriteLine("Confirm and return the car to the parc? y/n");
+                                        Console.ResetColor();
                                         string? confirm = Console.ReadLine();
                                         if (confirm == "y") {
                                             CarParc.RemoveCar(licensePlate);
+                                            Console.ForegroundColor = ConsoleColor.Green;
                                             Console.WriteLine("Successfully returned the car to the car parc.");
+                                            Console.ResetColor();
                                             break;
                                         } else {
                                             Console.Clear();
@@ -349,11 +487,15 @@ namespace TPFinal
 
                                     } else {
                                         Console.Clear();
+                                        Console.ForegroundColor = ConsoleColor.Red;
                                         Console.WriteLine("Error: This license plate is not registered to any car in this car parc.");
+                                        Console.ResetColor();
                                     }
                                 } else {
                                     Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine("Error: you seem to have inputed a lisence plate that is the wrong format.");
+                                    Console.ResetColor();
                                 }
                             }
                             break;
@@ -367,11 +509,15 @@ namespace TPFinal
                     }
                 } else {
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Error: input not recognised");
+                    Console.ResetColor();
                 }
             }
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Successfully closed the program");
+            Console.ResetColor();
         }
     }
 }
