@@ -13,7 +13,7 @@ namespace TPFinal
         
         public string All_info_car()
         {
-            return $"Brand : {Brand}, Model : {Model}, Year : {Year}, IsRented : {IsRented}, LicensePlate : {LicensePlate}";
+            return $"Brand : {Brand}, Model : {Model}, Year : {Year}, Rented : {IsRented}, LicensePlate : {LicensePlate}";
         }
     
         public Car(string Brand, string Model, int Year, bool IsRented, string LicensePlate)

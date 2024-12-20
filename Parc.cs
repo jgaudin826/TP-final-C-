@@ -51,8 +51,6 @@ namespace TPFinal
 
         public void ListAllCars()
         {
-            Console.WriteLine("list of all cars");
-
             foreach (var car in CarsList)
             {
                 Console.WriteLine(car.All_info_car());
@@ -60,20 +58,16 @@ namespace TPFinal
         }
         public void FilterAllCars(string filterString) //return a list off all cars with a brand or model matching the filterString
         {
-            Console.WriteLine("filtered list of all cars");
-
-                    foreach (var car in CarsList)
-                    {
-                        if(car.Brand.ToLower().Contains(filterString.ToLower().Replace(" ","")) || car.Model.ToLower().Contains(filterString.ToLower().Replace(" ","")))
-                        {
-                            Console.WriteLine(car.All_info_car());
-                        }
-                    }
+            foreach (var car in CarsList)
+            {
+                if(car.Brand.ToLower().Contains(filterString.ToLower().Replace(" ","")) || car.Model.ToLower().Contains(filterString.ToLower().Replace(" ","")))
+                {
+                    Console.WriteLine(car.All_info_car());
+                }
+            }
         }
         public void SearchAllCars(string searchString) //return a list off all cars with a license plate matching the searchString
         {
-            Console.WriteLine("searched list of all cars");
-
             foreach (var car in CarsList)
                     {
                         if(car.LicensePlate.ToLower().Replace("-","").Contains(searchString.ToLower().Replace("-","").Replace(" ","")))

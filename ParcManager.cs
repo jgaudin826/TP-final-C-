@@ -270,120 +270,144 @@ namespace TPFinal
 
                         case 3:
                             Console.Clear();
-                            Console.ForegroundColor = ConsoleColor.Magenta;
-                            Console.WriteLine("List of all cars in the parc:");
-                            Console.ResetColor();
-                            CarParc.ListAllCars();
-                            Console.ForegroundColor = ConsoleColor.Cyan;
-                            Console.WriteLine("Select what you would like to do:");
-                            Console.ResetColor();
-                            Console.WriteLine("1. Filter by Brand or Model.");
-                            Console.WriteLine("2. Search with license plate.");
-                            Console.WriteLine("3. List all cars available to rent.");
-                            Console.WriteLine("4. Back to the Main Menu.");
-                            if(int.TryParse(Console.ReadLine(),out int userInput)){
-                                switch(userInput){
-                                    case 1:
-                                        Console.Clear();
+                            
+                            while(true)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Magenta;
+                                Console.WriteLine("List of all cars in the parc:");
+                                Console.ResetColor();
+                                Console.WriteLine();
+                                CarParc.ListAllCars();
+                                Console.WriteLine();
+                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                Console.WriteLine("Select what you would like to do:");
+                                Console.ResetColor();
+                                Console.WriteLine("1. Filter by Brand or Model.");
+                                Console.WriteLine("2. Search with license plate.");
+                                Console.WriteLine("3. List all cars available to rent.");
+                                Console.WriteLine("4. Back to the Main Menu.");
+                                if(int.TryParse(Console.ReadLine(),out int userInput)){
+                                    switch(userInput){
+                                        case 1:
+                                            Console.Clear();
 
-                                        while(true)
-                                        {
-                                            Console.ForegroundColor = ConsoleColor.Magenta;
-                                            Console.WriteLine("Filter cars from the parc | enter 'q' to go back");
-                                            Console.ForegroundColor = ConsoleColor.Cyan;
-                                            Console.WriteLine("Enter the car's brand or model:");
-                                            Console.ResetColor();
-                                            
-                                            string? filterString = Console.ReadLine();
-                                            if (filterString == "q") {
-                                                Console.Clear();
-                                                Console.WriteLine("You've quit the process");
-                                                break;
-                                            }
-                                            
-                                            if(filterString != null){
-                                                CarParc.FilterAllCars(filterString);
-                                                while(true)
-                                                {
-                                                    Console.ForegroundColor = ConsoleColor.Cyan;
-                                                    Console.WriteLine("Enter anything to go back:");
-                                                    Console.ResetColor();
-                                                    
-                                                    string? _ = Console.ReadLine();
+                                            while(true)
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Magenta;
+                                                Console.WriteLine("Filter cars from the parc | enter 'q' to go back");
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("Enter either part or all of the car's brand or model:");
+                                                Console.ResetColor();
+                                                
+                                                string? filterString = Console.ReadLine();
+                                                if (filterString == "q") {
+                                                    Console.Clear();
+                                                    Console.WriteLine("You've quit the process");
                                                     break;
                                                 }
-                                            } else { 
-                                                Console.Clear();
-                                                Console.ForegroundColor = ConsoleColor.Red;
-                                                Console.WriteLine("Error: input not recognised.");
-                                                Console.ResetColor();
-                                            }
-                                        }
-                                        break;
-                                    case 2:
-                                        Console.Clear();
-
-                                        while(true)
-                                        {
-                                            Console.ForegroundColor = ConsoleColor.Magenta;
-                                            Console.WriteLine("Search cars from the parc | enter 'q' to go back");
-                                            Console.ForegroundColor = ConsoleColor.Cyan;
-                                            Console.WriteLine("Enter either part or all of the license plate you want to find:");
-                                            Console.ResetColor();
-                                            
-                                            string? searchString = Console.ReadLine();
-                                            if (searchString == "q") {
-                                                Console.Clear();
-                                                Console.WriteLine("You've quit the process");
-                                                break;
-                                            }
-
-                                            if(searchString != null){
-                                                CarParc.SearchAllCars(searchString);
-                                                while(true)
-                                                {
-                                                    Console.ForegroundColor = ConsoleColor.Cyan;
-                                                    Console.WriteLine("Enter anything to go back:");
+                                                
+                                                if(filterString != null){
+                                                    Console.WriteLine();
+                                                    CarParc.FilterAllCars(filterString);
+                                                    Console.WriteLine();
+                                                    while(true)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("Enter anything to go back:");
+                                                        Console.ResetColor();
+                                                        
+                                                        string? _ = Console.ReadLine();
+                                                        Console.Clear();
+                                                        break;
+                                                    }
+                                                } else { 
+                                                    Console.Clear();
+                                                    Console.ForegroundColor = ConsoleColor.Red;
+                                                    Console.WriteLine("Error: input not recognised.");
                                                     Console.ResetColor();
-                                                    
-                                                    string? _ = Console.ReadLine();
-                                                    break;
                                                 }
-                                            } else { 
-                                                Console.Clear();
-                                                Console.ForegroundColor = ConsoleColor.Red;
-                                                Console.WriteLine("Error: input not recognised.");
-                                                Console.ResetColor();
                                             }
-                                        }
-                                        break;
-                                    case 3:
-                                        Console.Clear();
-
-                                        while(true)
-                                        {
-                                            Console.ForegroundColor = ConsoleColor.Magenta;
-                                            Console.WriteLine("List of all alvailable cars in the parc");
-                                            Console.ResetColor();
-                                            CarParc.GetAllAvailableCars();
-                                            Console.ForegroundColor = ConsoleColor.Cyan;
-                                            Console.WriteLine("Enter anything to go back:");
-                                            Console.ResetColor();
-                                            
-                                            string? _ = Console.ReadLine();
                                             break;
-                                        }
+                                        case 2:
+                                            Console.Clear();
+
+                                            while(true)
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Magenta;
+                                                Console.WriteLine("Search cars from the parc | enter 'q' to go back");
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("Enter either part or all of the license plate you want to find:");
+                                                Console.ResetColor();
+                                                
+                                                string? searchString = Console.ReadLine();
+                                                if (searchString == "q") {
+                                                    Console.Clear();
+                                                    Console.WriteLine("You've quit the process");
+                                                    break;
+                                                }
+
+                                                if(searchString != null){
+                                                    Console.WriteLine();
+                                                    CarParc.SearchAllCars(searchString);
+                                                    Console.WriteLine();
+                                                    while(true)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("Enter anything to go back:");
+                                                        Console.ResetColor();
+                                                        
+                                                        string? _ = Console.ReadLine();
+                                                        Console.Clear();
+                                                        break;
+                                                    }
+                                                } else { 
+                                                    Console.Clear();
+                                                    Console.ForegroundColor = ConsoleColor.Red;
+                                                    Console.WriteLine("Error: input not recognised.");
+                                                    Console.ResetColor();
+                                                }
+                                            }
+                                            break;
+                                        case 3:
+                                            Console.Clear();
+
+                                            while(true)
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Magenta;
+                                                Console.WriteLine("List of all alvailable cars in the parc");
+                                                Console.ResetColor();
+                                                Console.WriteLine();
+                                                CarParc.GetAllAvailableCars();
+                                                Console.WriteLine();
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("Enter anything to go back:");
+                                                Console.ResetColor();
+                                                
+                                                string? _ = Console.ReadLine();
+                                                Console.Clear();
+                                                break;
+                                            }
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                    if(userInput == 3){
+                                        Console.Clear();
+                                        Console.WriteLine("You've quit the process");
                                         break;
-                                    default:
-                                        break;
+                                    }
+                                } else {
+                                    Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Red;  
+                                    Console.WriteLine("Error: input not recognised");
+                                    Console.ResetColor();
                                 }
-                                if(userInput == 3){
+                                if(userOption == 4){
                                     Console.Clear();
                                     Console.WriteLine("You've quit the process");
                                     break;
                                 }
                             }
-
                             break;
 
                         case 4:
@@ -406,10 +430,10 @@ namespace TPFinal
                                 if(licensePlate != null && Regex.IsMatch(licensePlate, LicensePlatePattern))
                                 {
                                     Car? carToRent = CarParc.GetCarFromLicensePlate(licensePlate);
-                                    if(carToRent!=null)
+                                    if(carToRent!=null && !carToRent.IsRented)
                                     {
                                         Console.ForegroundColor = ConsoleColor.Magenta;
-                                        Console.WriteLine("Car to be removed:");
+                                        Console.WriteLine("Car to be rented:");
                                         Console.ResetColor();
                                         Console.WriteLine(carToRent.All_info_car());
                                         Console.ForegroundColor = ConsoleColor.Cyan;
@@ -417,7 +441,7 @@ namespace TPFinal
                                         Console.ResetColor();
                                         string? confirm = Console.ReadLine();
                                         if (confirm == "y") {
-                                            CarParc.RemoveCar(licensePlate);
+                                            //CarParc.RentCar(licensePlate);
                                             Console.ForegroundColor = ConsoleColor.Green;
                                             Console.WriteLine("Successfully rented the car from the car parc.");
                                             Console.ResetColor();
@@ -463,10 +487,10 @@ namespace TPFinal
                                 if(licensePlate != null && Regex.IsMatch(licensePlate, LicensePlatePattern))
                                 {
                                     Car? carToReturn = CarParc.GetCarFromLicensePlate(licensePlate);
-                                    if(carToReturn!=null)
+                                    if(carToReturn!=null && carToReturn.IsRented)
                                     {
                                         Console.ForegroundColor = ConsoleColor.Magenta;
-                                        Console.WriteLine("Car to be removed:");
+                                        Console.WriteLine("Car to be returned:");
                                         Console.ResetColor();
                                         Console.WriteLine(carToReturn.All_info_car());
                                         Console.ForegroundColor = ConsoleColor.Cyan;
@@ -474,7 +498,7 @@ namespace TPFinal
                                         Console.ResetColor();
                                         string? confirm = Console.ReadLine();
                                         if (confirm == "y") {
-                                            CarParc.RemoveCar(licensePlate);
+                                            //CarParc.ReturnCar(licensePlate);
                                             Console.ForegroundColor = ConsoleColor.Green;
                                             Console.WriteLine("Successfully returned the car to the car parc.");
                                             Console.ResetColor();
