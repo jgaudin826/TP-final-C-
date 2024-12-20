@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 
 namespace TPFinal
 {
@@ -26,6 +27,13 @@ namespace TPFinal
 
         public Car? GetCarFromLicensePlate(string licensePlate) //method to check if a car with the license plate exists in the car parc
         {
+            foreach (Car car in CarsList)
+            {
+                if (car.LicensePlate == licensePlate)
+                {
+                    return car;
+                }
+            }
             return null;
         }
 
@@ -45,7 +53,22 @@ namespace TPFinal
         {
             Console.WriteLine("searched list of all cars");
         }
+
+        public List<string> GetAllAvailableCars() // return a list of all info of available cars
+        {
+            List<string> availableCars = new List<string>();
+
+            foreach (Car car in CarsList)
+            {
+                if (!car.IsRented)
+                {
+                    availableCars.Add(car.All_info_car());
+                }
+            }
+
+            return availableCars; 
+        }
+
     }
 
 }
-//license and id are unique - make an error check to make sure they don't already exist, return either the error messages or the new car
