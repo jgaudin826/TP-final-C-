@@ -94,7 +94,7 @@ namespace TPFinal
             }
         }
 
-        public void RentCar(string licensePlate)
+        public void RentCar(string licensePlate) // Method that checks if a vehicle has been rented
         {
            foreach (var car in CarsList)
            {
@@ -105,7 +105,7 @@ namespace TPFinal
            }
         }
 
-         public void ReturnCar(string licensePlate)
+         public void ReturnCar(string licensePlate) // Method that checks if a vehicle has been returned
         {
            foreach (var car in CarsList)
            {
