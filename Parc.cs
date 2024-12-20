@@ -14,11 +14,11 @@ namespace TPFinal
         public void AddANewCar(Models.Brands chosenBrand, object chosenModel, string licensePlate, int carYear) //method to add a new car
         {
             Car newCar = new Car(
-                Convert.ToString(chosenBrand),    
-                Convert.ToString(chosenModel),    
+                chosenBrand.ToString(),    
+                chosenModel.ToString(),    
                 Convert.ToInt32(carYear),                   
                 false,                     
-                Convert.ToString(licensePlate)             
+                licensePlate.ToString()             
             );
 
             CarsList.Add(newCar);
@@ -31,19 +31,48 @@ namespace TPFinal
 
         public void RemoveCar(string licensePlate) //method to remove a car from the car parc using the license plate as a unique ID
         {
+            foreach (var car in CarsList)
+            {
+                if (car.LicensePlate == licensePlate)
+                {
+                    CarsList.Remove(car);
+                }
+            }
+             
         }
 
         public void ListAllCars()
         {
             Console.WriteLine("list of all cars");
+
+            foreach (var car in CarsList)
+            {
+                Console.WriteLine(car.All_info_car());
+            }
         }
         public void FilterAllCars(string filterString) //return a list off all cars with a brand or model matching the filterString
         {
             Console.WriteLine("filtered list of all cars");
+
+                    foreach (var car in CarsList)
+                    {
+                        if(car.Brand.ToLower().Contains(filterString.ToLower().Replace(" ","")) || car.Model.ToLower().Contains(filterString.ToLower().Replace(" ","")))
+                        {
+                            Console.WriteLine(car.All_info_car());
+                        }
+                    }
         }
         public void SearchAllCars(string searchString) //return a list off all cars with a license plate matching the searchString
         {
             Console.WriteLine("searched list of all cars");
+
+            foreach (var car in CarsList)
+                    {
+                        if(car.LicensePlate.ToLower().Replace("-","").Contains(searchString.ToLower().Replace("-","").Replace(" ","")))
+                        {
+                            Console.WriteLine(car.All_info_car());
+                        }
+                    }
         }
     }
 }
